@@ -9,14 +9,15 @@ import JobsList from "./components/jobsList";
 import esLocaleData from 'react-intl/locale-data/es';
 import localeEsMessages from "./locales/es";
 
-const localeMessage = function(){
+const funleng = function(){
 
-    if(navigator.language.startsWith("es-ES")){
-        return localeEsMessages;
+    if(navigator.language.startsWith("en")){
+        return localeEnMessages;
+
     }
 
     else{
-        return localeEnMessages;
+        return localeEsMessages;
     }
 
 }
@@ -24,7 +25,7 @@ const localeMessage = function(){
 addLocaleData([...esLocaleData, ...enLocaleData])
 
 ReactDOM.render(
-	<IntlProvider locale={navigator.language} messages = {localeMessage()}>
+	<IntlProvider locale={navigator.language} messages = {funleng()}>
         <JobsList/>
     </IntlProvider>, document.getElementById("root")
 );
